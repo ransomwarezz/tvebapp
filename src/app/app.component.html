@@ -1,14 +1,19 @@
 <md-sidenav-container>
   <md-sidenav #sidenav mode="side" class="app-sidenav">
-    Sidenav
+    <md-list>
+      <md-list-item>
+        <h4>Social Media</h4>
+      </md-list-item>
+    </md-list>
   </md-sidenav>
 
   <md-toolbar color="primary">
-    <button class="app-icon-button" (click)="sidenav.toggle()">
+    <button md-icon-button (click)="sidenav.toggle()">
       <i class="material-icons app-toolbar-menu">menu</i>
-    </button> 
+    </button>
+    <span class="app-toolbar-filler"></span>
     
-    tvebapp
+    tveb
 
     <span class="app-toolbar-filler"></span>
     <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>

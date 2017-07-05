@@ -11,6 +11,7 @@
         "assets",
         "favicon.ico",
         "service-worker.js",
+        "service-worker-registration.js",
         "manifest.json"
       ],
       "index": "index.html",
@@ -22,7 +23,9 @@
       "prefix": "app",
       "serviceWorker": true,
       "styles": [
-        "styles.css"
+        "theme.scss",
+        "styles.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [
       ],
