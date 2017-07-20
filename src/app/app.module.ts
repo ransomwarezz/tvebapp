@@ -11,11 +11,17 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
-import {MdButtonModule, MdCheckboxModule, MdSidenavModule, MdToolbarModule} from '@angular/material';
+import { MdButtonModule, MdCardModule, MdCheckboxModule, MdListModule, MdSidenavModule, MdToolbarModule } from '@angular/material';
+
+import { AboutComponent } from './about/about.component';
+import { SocialMediaComponent } from './social-media/social-media.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutComponent,
+    SocialMediaComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,10 +31,13 @@ import {MdButtonModule, MdCheckboxModule, MdSidenavModule, MdToolbarModule} from
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     FormsModule,
     HttpModule,
-    MdButtonModule, 
+    MdButtonModule,
+    MdCardModule,
     MdCheckboxModule,
+    MdListModule,
     MdSidenavModule,
-    MdToolbarModule
+    MdToolbarModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

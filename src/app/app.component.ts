@@ -14,4 +14,9 @@ export class AppComponent {
   constructor(db: AngularFireDatabase) {
     this.items = db.list('items');
   }
+
+  navItems = [
+    { name: 'Social Media', route: 'socialmedia' },
+  ];
+
 }

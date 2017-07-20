@@ -1,32 +1,32 @@
-md-sidenav-layout.m2app-dark {
+md-sidenav-container.m2app-dark {
   background: black;
 }
 
-.app-content {
+/* .app-content {
   padding: 20px;
-}
+} */
 
-.app-content md-card {
+/* .app-content md-card {
   margin: 20px;
-}
+} */
 
-.app-sidenav {
+/* .app-sidenav {
   padding: 10px;
   min-width: 150px;
-}
+} */
 
-.app-content md-checkbox {
+/* .app-content md-checkbox {
   margin: 10px;
-}
+} */
 
-.app-toolbar-filler {
+ .app-toolbar-filler {
   flex: 1 1 auto;
-}
+} 
 
-.app-toolbar-menu {
+/* .app-toolbar-menu {
   padding: 0 14px 0 14px;
   color: white;
-}
+} */
 
 .app-icon-button {
   box-shadow: none;
@@ -62,11 +62,11 @@ md-sidenav-layout.m2app-dark {
   font-size: 16px;
 }
 
-.app-list {
+/* .app-list {
   border: 1px solid rgba(0,0,0,0.12);
   width: 350px;
   margin: 20px;
-}
+} */
 
 .app-progress {
   margin: 20px;
