@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   isDarkTheme: boolean = false;
+  environmentName = environment.envName === "prod" ? "" : environment.envName;
 
   items: FirebaseListObservable<any[]>;
   name: any;
@@ -16,6 +19,7 @@ export class AppComponent {
   }
 
   navItems = [
+    { name: 'Login', route: 'login' },
     { name: 'Social Media', route: 'socialmedia' },
   ];
 

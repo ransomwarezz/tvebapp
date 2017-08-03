@@ -12,16 +12,19 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
 import { MdButtonModule, MdCardModule, MdCheckboxModule, MdListModule, MdSidenavModule, MdToolbarModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AboutComponent } from './about/about.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     SocialMediaComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
     MdSidenavModule,
     MdToolbarModule,
     AppRoutingModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
