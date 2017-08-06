@@ -39,34 +39,3 @@
     background: #bb0000;
     color: white;
 }
-
-.flex-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-.flex-item {
-    padding: 20px;
-    margin: 20px;
-    line-height: 50px;
-    margin-top: 20px;
-    width: 50px;
-    height: 50px;
-}
-
-.flex-item-icon {
-    padding: 10px;
-    margin: 10px;
-    line-height: 200px;
-    margin-top: 10px;
-    width: 200px;
-    height: 200px;
-}
-
-.header {
-    text-align: center;
-    color: #4caf50;
-    font-size: 2.5em;
-    text-shadow: 1px 1px black;
-}

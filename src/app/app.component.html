@@ -6,6 +6,8 @@
         {{navItem.name}}
       </a>
       <a md-list-item (click)="sidenav.close()" [routerLink]="['about']">Über uns</a>
+      <a md-list-item (click)="sidenav.close()" (click)="logout()" *ngIf="authenticated">Logout</a>
+      <a md-list-item (click)="sidenav.close()" [routerLink]="['login']" *ngIf="!authenticated">Login</a>
     </md-nav-list>
   </md-sidenav>
   <div>

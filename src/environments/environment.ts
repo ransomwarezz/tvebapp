@@ -14,21 +14,5 @@ export const environment = {
     projectId: "tvebapp",
     storageBucket: "",
     messagingSenderId: "494609528633"
-  },
-  // firebaseuiConfig: {
-  //   'siteName': 'tvebapp',
-  //   'signInSuccessUrl': 'http://localhost:4200',
-  //   'signInOptions': [
-  //     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-  //     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-  //     firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-  //     firebase.auth.GithubAuthProvider.PROVIDER_ID,
-  //     firebase.auth.EmailAuthProvider.PROVIDER_ID
-  //   ],
-  //   'callbacks': {
-  //     'signInSuccess': function (currentUser, credential, redirectUrl) {
-  //       return true;
-  //     }
-  //   }
-  // }
+  }
 };

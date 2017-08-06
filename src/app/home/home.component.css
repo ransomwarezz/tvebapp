@@ -1,0 +1,19 @@
+.flex-home-container {
+    display: flex;
+    display: -webkit-flex;
+    -webkit-flex-direction: column; /* works with row or column */
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 100%;
+    /* height: 400px; */
+}
+
+.flex-home-button {
+    margin-top: 20px;
+    width: 200px;
+    /* margin: auto;  */
+    background-color: #a5d6a7;
+}
