@@ -6,6 +6,7 @@ import { AuthGuardService } from "./core/auth-guard.service";
 import { AboutComponent } from "./about/about.component";
 import { HomeComponent } from "./home/home.component";
 import { UserLoginComponent } from "./users/user-login/user-login.component";
+import { UserProfileComponent } from "./users/user-profile/user-profile.component";
 import { SocialMediaComponent } from "./social-media/social-media.component";
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: UserLoginComponent
+  },
+  {
+    path: 'profile',
+    component: UserProfileComponent
   }
 ];
 

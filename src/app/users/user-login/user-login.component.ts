@@ -2,7 +2,6 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import * as firebaseui from 'firebaseui';
 import { Router } from '@angular/router';
 
 import { AuthService } from "../../core/auth.service";
