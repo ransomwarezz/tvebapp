@@ -1,24 +1,54 @@
 <md-sidenav-container fullscreen>
   <md-sidenav #sidenav mode="side" class="app-sidenav">
     <md-nav-list>
-      <a md-list-item (click)="sidenav.close()" [routerLink]="['']">Home</a>
-      <a *ngFor="let navItem of navItems" md-list-item (click)="sidenav.close()" [routerLink]="[navItem.route]">
+      <!-- <a md-list-item (click)="sidenav.close()" [routerLink]="['']">Home</a> -->
+      <md-list-item *ngFor="let navItem of navItems" (click)="sidenav.close()" [routerLink]="[navItem.route]">
+        <md-icon md-list-icon>{{navItem.icon}} </md-icon>
         {{navItem.name}}
-      </a>
-      <a md-list-item (click)="sidenav.close()" [routerLink]="['about']">Über uns</a>
-      <a md-list-item (click)="sidenav.close()" [routerLink]="['profile']" *ngIf="authenticated">Profil</a>
-      <a md-list-item (click)="sidenav.close()" (click)="logout()" *ngIf="authenticated">Logout</a>
-      <a md-list-item (click)="sidenav.close()" [routerLink]="['login']" *ngIf="!authenticated">Login</a>
+      </md-list-item>
+      <div *ngIf="authService.authenticated$ | async">
+        <!-- Menu items only available when logged in -->
+      </div>
+      <a md-list-item (click)="sidenav.close()" [routerLink]="['login']" *ngIf="!(authService.authenticated$ | async)">Login</a>
     </md-nav-list>
   </md-sidenav>
-  <div>
-    <md-toolbar color="primary">
-      <button md-icon-button (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
-    </button>
-      <span class="app-toolbar-filler"></span> tvebapp{{environmentName}}
-      <span class="app-toolbar-filler"></span>
-    </md-toolbar>
-  </div>
+
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.toggle()">
+        <i class="material-icons app-toolbar-menu">menu</i>
+      </button>
+    <span class="app-toolbar-filler"></span>
+    <div>
+      tvebapp{{environmentName}}
+    </div>
+    <span class="app-toolbar-filler"></span>
+
+    <!-- user avatar with menu if user is authenticated  -->
+    <div *ngIf="authService.authenticated$ | async">
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+          <img class="user-icon" src="{{ authService.photoURL$ | async }}"> 
+        </button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item [routerLink]="['profile']">
+            <md-icon>perm_identity</md-icon>
+            <span>Profil</span>
+          </button>
+        <button md-menu-item (click)="authService.logout()" [routerLink]="['']">
+            <md-icon>exit_to_app</md-icon>
+            <span>Logout</span>
+          </button>
+      </md-menu>
+    </div>
+
+    <div *ngIf="!(authService.authenticated$ | async)">
+      <button md-button [routerLink]="['login']">
+        <!-- <md-icon>vpn_key</md-icon> -->
+        <!-- <i class="material-icons">vpn_key</i> -->
+        <span>Login</span>
+      </button>
+    </div>
+    <!-- <span class="app-toolbar-filler"></span>  -->
+
+  </md-toolbar>
   <router-outlet></router-outlet>
 </md-sidenav-container>

@@ -17,3 +17,19 @@
     /* margin: auto;  */
     background-color: #a5d6a7;
 }
+
+.flex-home-login-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    /* margin: auto;  */
+    background-color: #a5d6a7;
+}
+
+.container {
+    background-color: green;
+}
+
+/* .item {
+    background-color: lightgray;
+} */

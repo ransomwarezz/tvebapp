@@ -28,6 +28,13 @@ md-sidenav-container.m2app-dark {
   color: white;
 } */
 
+.user-icon {
+    border-radius: 50%;
+    min-height: 24px;
+    max-height: 48px;
+    height: auto;
+}
+
 .app-icon-button {
   box-shadow: none;
   user-select: none;

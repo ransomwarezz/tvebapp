@@ -1,19 +1,33 @@
 <div class="flex-container">
   <md-card class="example-card">
     <md-card-header>
-      <img md-card-avatar src="{{ (user$ | async)?.photoURL }}">
-      <md-card-title>{{ (user$ | async)?.displayName }}</md-card-title>
-      <md-card-subtitle>{{ (user$ | async)?.email }}</md-card-subtitle>
+       <img md-card-avatar src="{{ authService.photoURL$ | async }}"> 
+      <md-card-title>{{ authService.username$ | async }}</md-card-title>
+      <md-card-subtitle>{{ authService.email$ | async }}</md-card-subtitle>
     </md-card-header>
     <!-- <img md-card-image src="assets/img/examples/shiba2.jpg"> -->
     <md-card-content>
       <p>
         Statistics will appear here.
       </p>
+      <p>Höchstes Break: 12</p>
     </md-card-content>
-    <md-card-actions>
+    <!-- <md-card-actions>
       <button md-button>LIKE</button>
       <button md-button>SHARE</button>
-    </md-card-actions>
+    </md-card-actions> -->
   </md-card>
 </div>
+<!--
+<div *ngFor="let user of users$ | async">
+  {{user.$key}} = {{user.$value}}<br>
+</div>
+<p>
+  key:   {{ ( onlineRef$ | async )?.$key }}
+</p>
+<p>
+  value: {{ ( onlineRef$ | async )?.$value }}
+</p>
+
+{{ authService.photoURL$ | async }}
+-->

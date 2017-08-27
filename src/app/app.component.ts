@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 
 import { environment } from '../environments/environment';
 
-import { AngularFireAuth } from 'angularfire2/auth';
+// import { AuthService } from './core/auth.service';
+import { AuthService } from "./auth";
 import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs/Observable';
@@ -17,53 +18,32 @@ import { Observable } from 'rxjs/Observable';
 export class AppComponent {
 
   navItems = [
-    { name: 'Social Media', route: 'socialmedia' },
+    { name: 'Home', icon: 'home', route: '' },
+    { name: 'Social Media', icon: 'cloud', route: 'socialmedia' },
+    { name: 'Über uns', icon: 'help', route: 'about' },
     // { name: 'Login', route: 'login' },
   ];
 
+  // differ between development and production environment
   environmentName = environment.envName === "prod" ? "" : environment.envName;
 
   authenticated: boolean = false;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) {
-
-    // this.afAuth.authState.subscribe(this.firebaseAuthChangeListener);
-    this.afAuth.authState.subscribe(response => {
-      // if needed, do a redirect in here
-      if (response) {
-        console.log('Logged in :)');
-        this.router.navigate(['']);
-      } else {
-        console.log('Logged out :(');
-      }
-    });
-
-    afAuth.authState.subscribe(user => {
-      if (user) {
-        this.authenticated = true;
-      } else {
-        this.authenticated = false;
-      }
-    });
+  constructor(private authService: AuthService, private router: Router) 
+  {
+    // this.authService.currentUserObservable.subscribe(user => {
+    //   if (user) {
+    //     this.authenticated = true;
+    //     // enter the user to the presence system
+    //     this.presenceService.connect(user);
+    //   }
+    //   else {
+    //     this.authenticated = false;
+    //   }
+    // });
+    // setTimeout(afterTimeout => {
+    //   console.log("after timeout");
+    // }, 1000);
   }
 
-  // private firebaseAuthChangeListener(response) {
-  //   // if needed, do a redirect in here
-  //   if (response) {
-  //     console.log('Logged in :)');
-  //     // this.navigate();
-  //   } else {
-  //     console.log('Logged out :(');
-  //   }
-  // }
-
-  // navigate() {
-  //   this.router.navigate(['']);
-  // }
-
-  logout() {
-    this.afAuth.auth.signOut();
-    console.log('AppComponent: logged out');
-    this.router.navigateByUrl('');
-  }
 }

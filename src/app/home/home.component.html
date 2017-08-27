@@ -1,18 +1,12 @@
-<div class="flex-container">
-  <img class="flex-item-icon" src="../assets/images/icons/icon-192x192.png" alt="">
-</div>
 <div class="subheader">
-  Hallo
-</div>
-<div class="subheader" *ngIf="authenticated">
-  {{ (currentUser | async)?.displayName }}
-</div>
-<div class="subheader">
-  Was willst du spielen?
+  <div *ngIf="authService.authenticated$">
+  <p>Hallo {{ user }}.</p>
+  </div>
+  <p>Was willst du spielen?</p>
 </div>
 <div class="flex-home-container">
-    <button md-raised-button class="flex-home-button">8 Ball</button>
-    <button md-raised-button class="flex-home-button">9 Ball</button>
-    <button md-raised-button class="flex-home-button">10 Ball</button>
-    <button md-raised-button class="flex-home-button">14/1 Endlos</button>
+  <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">8 Ball</button>
+  <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">9 Ball</button>
+  <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">10 Ball</button>
+  <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">14/1 Endlos</button>
 </div>
