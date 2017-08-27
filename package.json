@@ -27,7 +27,7 @@
     "@angular/router": ">=4.0.0-beta <5.0.0",
     "angularfire2": "^4.0.0-rc.1",
     "core-js": "^2.4.1",
-    "firebase": "^4.2.0",
+    "firebase": "^4.3.0",
     "firebaseui": "^2.3.0",
     "firebaseui-angular": "^0.4.3",
     "font-awesome": "^4.7.0",

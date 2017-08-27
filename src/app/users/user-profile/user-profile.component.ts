@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   onlineRef$: FirebaseObjectObservable<any>;
   connectedRef: FirebaseObjectObservable<any>;
 
-  constructor(private authService: AuthService, private db: AngularFireDatabase) {
+  constructor(public authService: AuthService, private db: AngularFireDatabase) {
     // this.users$ = db.list('users');
     // this.users$.subscribe(users => {
     //   users.forEach(user => {
