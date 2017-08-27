@@ -19,7 +19,6 @@ export class AppComponent {
 
   navItems = [
     { name: 'Home', icon: 'home', route: '' },
-    { name: 'Social Media', icon: 'cloud', route: 'socialmedia' },
     { name: 'Über uns', icon: 'help', route: 'about' },
     // { name: 'Login', route: 'login' },
   ];
@@ -27,10 +26,12 @@ export class AppComponent {
   // differ between development and production environment
   environmentName = environment.envName === "prod" ? "" : environment.envName;
 
-  authenticated: boolean = false;
+  authenticated$: Observable<boolean>;
+  photoURL$: Observable<string>;
 
-  constructor(private authService: AuthService, private router: Router) 
-  {
+  constructor(private authService: AuthService, private router: Router) {
+    this.authenticated$ = this.authService.authenticated$;
+    this.photoURL$ = this.authService.photoURL$;
     // this.authService.currentUserObservable.subscribe(user => {
     //   if (user) {
     //     this.authenticated = true;
@@ -46,4 +47,7 @@ export class AppComponent {
     // }, 1000);
   }
 
+  logout() {
+    this.authService.logout();
+  }
 }

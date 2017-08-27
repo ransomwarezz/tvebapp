@@ -17,7 +17,11 @@ export class AuthService {
   constructor(public afAuth: AngularFireAuth) {
     this.authenticated$ = afAuth.authState.map(user => !!user);
     this.uid$ = afAuth.authState.map(user => user.uid);
-    this.username$ = afAuth.authState.map(user => user.displayName);
+    this.username$ = afAuth.authState.map(user => {
+      if (user) {
+        return user.displayName;
+      }
+    });
     this.photoURL$ = afAuth.authState.map(user => user.photoURL);
     this.email$ = afAuth.authState.map(user => user.email);
   }

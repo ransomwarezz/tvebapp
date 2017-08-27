@@ -16,7 +16,7 @@ export class LoginComponent {
 
   successCallback(data: FirebaseUISignInSuccess) {
     console.log("LoginComponent:successCallback: user logged in now -> redirecting to home");
-    // this.router.navigate(['']);
+    this.router.navigate(['']);
   }
 
 }

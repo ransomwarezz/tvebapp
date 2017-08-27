@@ -1,6 +1,6 @@
 <div class="subheader">
-  <div *ngIf="authService.authenticated$">
-  <p>Hallo {{ user }}.</p>
+  <div *ngIf="authenticated$ | async">
+  <p>Hallo {{ username$ | async }}.</p>
   </div>
   <p>Was willst du spielen?</p>
 </div>

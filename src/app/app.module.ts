@@ -5,25 +5,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
-import { UserService } from "./users/shared/user.service";
+import { UserService } from './users/shared/user.service';
 
 import { AuthMethods, AuthProvider, FirebaseUIAuthConfig, FirebaseUIModule, AuthProviderWithCustomConfig } from 'firebaseui-angular';
 
 import { environment } from '../environments/environment';
 
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AboutComponent } from './about/about.component';
-import { SocialMediaComponent } from './social-media/social-media.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
 import { HomeComponent } from './home/home.component';
 import { UserPresenceComponent } from './users/user-presence/user-presence.component';
 
 
-import { AuthModule } from "./auth";
-import { FirebaseModule } from "./firebase";
-import { MaterialModule } from "./material";
+import { AuthModule } from './auth';
+import { FirebaseModule } from './firebase';
+import { MaterialModule } from './material';
 
 
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
@@ -45,7 +44,7 @@ const facebookCustomConfig: AuthProviderWithCustomConfig = {
 export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
   providers: [
     AuthProvider.Google,
-    // facebookCustomConfig,
+    facebookCustomConfig,
     // AuthProvider.Twitter,
     // AuthProvider.Github,
     AuthProvider.Password,
@@ -59,7 +58,6 @@ export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
   declarations: [
     AppComponent,
     AboutComponent,
-    SocialMediaComponent,
     UserProfileComponent,
     HomeComponent,
     UserPresenceComponent,

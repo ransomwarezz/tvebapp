@@ -46,14 +46,14 @@ import {
 })
 export class HomeComponent implements OnInit {
 
-  user: string = "";
+  authenticated$: Observable<boolean>;
+  username$: Observable<string>;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.username$.subscribe(username => {
-      this.user = username.split(" ", 1)[0];
-    });
+    this.authenticated$ = this.authService.authenticated$;
+    this.username$ = this.authService.username$;
   }
 
 }

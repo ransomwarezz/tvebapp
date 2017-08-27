@@ -3,10 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent } from "./about/about.component";
 import { HomeComponent } from "./home/home.component";
-import { UserLoginComponent } from "./users/user-login/user-login.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
 import { UserPresenceComponent } from "./users/user-presence/user-presence.component";
-import { SocialMediaComponent } from "./social-media/social-media.component";
 
 const routes: Routes = [
   {
@@ -16,10 +14,6 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
-  },
-  {
-    path: 'socialmedia',
-    component: SocialMediaComponent
   },
   {
     path: 'users',
