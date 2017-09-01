@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from "./about/about.component";
 import { HomeComponent } from "./home/home.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
-import { UserPresenceComponent } from "./users/user-presence/user-presence.component";
+import { PresenceComponent } from "./presence";
 
 const routes: Routes = [
   {
@@ -16,8 +16,8 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
-    path: 'users',
-    component: UserPresenceComponent
+    path: 'presence',
+    component: PresenceComponent
   },
   {
     path: 'profile',

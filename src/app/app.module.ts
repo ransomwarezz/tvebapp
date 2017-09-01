@@ -21,6 +21,7 @@ import { UserPresenceComponent } from './users/user-presence/user-presence.compo
 
 
 import { AuthModule } from './auth';
+import { PresenceModule } from './presence';
 import { FirebaseModule } from './firebase';
 import { MaterialModule } from './material';
 
@@ -69,6 +70,7 @@ export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
     AuthModule,
     FirebaseModule,
     MaterialModule,
+    PresenceModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     FormsModule,
     HttpModule,

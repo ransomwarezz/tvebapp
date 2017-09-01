@@ -20,6 +20,7 @@ export class AppComponent {
   navItems = [
     { name: 'Home', icon: 'home', route: '' },
     { name: 'Über uns', icon: 'help', route: 'about' },
+    { name: 'Presence', icon: '', route: 'presence' },
     // { name: 'Login', route: 'login' },
   ];
 
