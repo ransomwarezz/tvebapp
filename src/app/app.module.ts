@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
-import { UserService } from './users/shared/user.service';
-
 import { AuthMethods, AuthProvider, FirebaseUIAuthConfig, FirebaseUIModule, AuthProviderWithCustomConfig } from 'firebaseui-angular';
 
 import { environment } from '../environments/environment';
@@ -21,9 +19,12 @@ import { UserPresenceComponent } from './users/user-presence/user-presence.compo
 
 
 import { AuthModule } from './auth';
-import { PresenceModule } from './presence';
+import { PlayersModule } from './players';
 import { FirebaseModule } from './firebase';
 import { MaterialModule } from './material';
+
+import { UserService } from './users/shared/user.service';
+import { PresenceService } from './users/shared/presence.service';
 
 
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
@@ -37,7 +38,7 @@ const facebookCustomConfig: AuthProviderWithCustomConfig = {
     ],
     customParameters: {
       // Forces password re-entry.
-      auth_type: 'reauthenticate'
+      // auth_type: 'reauthenticate'
     }
   }
 };
@@ -70,15 +71,16 @@ export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
     AuthModule,
     FirebaseModule,
     MaterialModule,
-    PresenceModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    PlayersModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    FlexLayoutModule,
+    FlexLayoutModule.forRoot(),
   ],
   providers: [
-    UserService
+    UserService,
+    PresenceService
   ],
   bootstrap: [AppComponent]
 })

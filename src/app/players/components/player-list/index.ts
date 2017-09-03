@@ -1,0 +1,1 @@
+export { PlayerListComponent } from './player-list.component';

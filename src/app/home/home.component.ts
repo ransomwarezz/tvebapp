@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { firebase } from '../firebase';
 import { AuthService } from "../auth";
 
 import {
@@ -47,13 +48,13 @@ import {
 export class HomeComponent implements OnInit {
 
   authenticated$: Observable<boolean>;
-  username$: Observable<string>;
+  user$: Observable<firebase.User>;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.authenticated$ = this.authService.authenticated$;
-    this.username$ = this.authService.username$;
+    this.user$ = this.authService.user$;
   }
 
 }

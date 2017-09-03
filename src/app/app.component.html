@@ -26,7 +26,7 @@
     <!-- user avatar with menu if user is authenticated  -->
     <div *ngIf="authenticated$ | async">
       <button md-icon-button [mdMenuTriggerFor]="menu">
-          <img class="user-icon" src="{{ photoURL$ | async }}">
+          <img class="user-icon" src="{{ ( user$ | async )?.photoURL }}">
         </button>
       <md-menu #menu="mdMenu">
         <button md-menu-item [routerLink]="['profile']">

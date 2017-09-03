@@ -1,45 +1,19 @@
-import 'rxjs/add/operator/map';
-
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebase } from '../firebase';
 import { Observable } from 'rxjs/Observable';
 
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
+
   authenticated$: Observable<boolean>;
-  uid$: Observable<string>;
-  username$: Observable<string>;
-  photoURL$: Observable<string>;
-  email$: Observable<string>;
-
-  uid: string;
-
+  user$: Observable<firebase.User>;  
+  
   constructor(private afAuth: AngularFireAuth) {
+    this.user$ = afAuth.authState;
     this.authenticated$ = afAuth.authState.map(user => !!user);
-    this.uid$ = afAuth.authState.map(user => {
-      if (user) {
-        return user.uid;
-      }
-    });
-    this.username$ = afAuth.authState.map(user => {
-      if (user) {
-        return user.displayName;
-      }
-    });
-    this.photoURL$ = afAuth.authState.map(user => {
-      if (user) {
-        return user.photoURL;
-      }
-    });
-    this.email$ = afAuth.authState.map(user => {
-      if (user) {
-        return user.email;
-      }
-    });
-
-
   }
 
   logout(): void {
