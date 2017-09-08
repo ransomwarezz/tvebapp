@@ -27,7 +27,7 @@
     <div *ngIf="authenticated$ | async">
       <button md-icon-button [mdMenuTriggerFor]="menu">
           <img class="user-icon" src="{{ ( user$ | async )?.photoURL }}">
-        </button>
+      </button>
       <md-menu #menu="mdMenu">
         <button md-menu-item [routerLink]="['profile']">
             <md-icon>perm_identity</md-icon>

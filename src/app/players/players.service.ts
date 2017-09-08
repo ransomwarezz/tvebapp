@@ -1,27 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { AuthService } from '../auth';
 import { IPlayer, Player } from './models';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { firebase } from '../firebase';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+
+import { AuthService } from '../auth';
 
 @Injectable()
 export class PlayersService {
 
-  user: firebase.User;
-  visiablePlayers$: Observable<IPlayer[]>;
+  currentPlayer$: FirebaseObjectObservable<IPlayer>;
   players$: FirebaseListObservable<IPlayer[]>;
 
   constructor(private db: AngularFireDatabase, private auth: AuthService) { 
-    auth.user$
-    .take(1)
-    .subscribe(user => {
-      console.log("PlayersService");
-      const path = "users/"; // TODO change back to "players"
-      this.players$ = db.list(path);
-      this.visiablePlayers$ = this.players$;
-      this.user = user;
-    });
+    this.getOnlinePlayers();
+    this.createPlayer(this.auth.user.uid);
+  }
+
+  private getOnlinePlayers() {
+    this.players$ = this.db.list('users/', { query: { orderByChild: 'status', equalTo: 'online' } }); // return only online users
+  }
+
+  private createPlayer(uid: string) {
+    this.currentPlayer$ = this.db.object('players/' + this.auth.user.uid);
+    this.currentPlayer$.update(
+      {
+        // name: this.auth.user.displayName,
+        name: 'nickname',
+        photoURL: this.auth.user.photoURL,
+        status: 'available'
+      }
+    );
   }
 }

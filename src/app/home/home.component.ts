@@ -16,7 +16,7 @@ import {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-    animations: [
+  animations: [
     trigger('flyInOut', [
       state('in', style({width: 120, transform: 'translateX(0)', opacity: 1})),
       transition('void => *', [

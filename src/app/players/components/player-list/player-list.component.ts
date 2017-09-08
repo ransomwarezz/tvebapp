@@ -22,7 +22,7 @@ import { IPlayer } from '../../models';
     fxLayoutGap="10px"
     fxLayoutGap.xs="5px">
     <div *ngFor="let player of players$ | async">
-      <div *ngIf="player.$key != currentUser.uid">
+      <div *ngIf="player.$key != uid">
         <app-player-item [player]="player"></app-player-item>
       </div>
     </div>
@@ -32,8 +32,8 @@ styleUrls: ['./player-list.component.css']
 })
 export class PlayerListComponent implements OnInit {
 
+  @Input() uid: string;
   @Input() players$: FirebaseListObservable<IPlayer[]>;
-  @Input() currentUser: firebase.User;
   
   constructor() { }
 

@@ -36,6 +36,13 @@ body {
     /* text-shadow: 0.5px 0.5px black; */
 }
 
+.user-icon {
+    border-radius: 50%;
+    min-height: 24px;
+    max-height: 48px;
+    height: auto;
+}
+
 .flex-container {
     display: flex;
     flex-flow: row wrap;

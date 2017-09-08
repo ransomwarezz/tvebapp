@@ -4,8 +4,9 @@
   "theme_color": "#4caf50",
   "background_color": "#a5d6a7",
   "display": "fullscreen",
-  "orientation": "portrait",
+  "orientation": "any",
   "Scope": "/",
+  "gcm_sender_id": "103953800507",
   "start_url": "./?utm_source=homescreen",
   "icons": [
     {

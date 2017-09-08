@@ -1,11 +1,10 @@
-<div class="subheader">
-  <div *ngIf="authenticated$ | async">
-  <p>Hallo {{ ( user$ | async )?.displayName }}.</p>
+<div *ngIf="authenticated$ | async">
+  <div class="flex-home-container">
+    <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/players']">Suche Mitspieler</button>
   </div>
-  <p>Was willst du spielen?</p>
 </div>
 <div class="flex-home-container">
-  <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">8 Ball</button>
+  <button [@flyInOut]="'in'" md-raised-button class="flex-home-button"class="flex-home-button">8 Ball</button>
   <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">9 Ball</button>
   <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">10 Ball</button>
   <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">14/1 Endlos</button>

@@ -21,12 +21,6 @@ export class UserProfileComponent implements OnInit {
   connectedRef: FirebaseObjectObservable<any>;
 
   constructor(public authService: AuthService, private db: AngularFireDatabase) {
-    // this.users$ = db.list('users');
-    // this.users$.subscribe(users => {
-    //   users.forEach(user => {
-    //     // console.log(user);
-    //   });
-    // })
     this.user$ = authService.user$;
     this.connectedRef = db.object('.info');
     this.connectedRef.map(info => info.connected).subscribe(value => console.log(`connected = ${value}`));

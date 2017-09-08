@@ -4,28 +4,23 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-
 import { AuthMethods, AuthProvider, FirebaseUIAuthConfig, FirebaseUIModule, AuthProviderWithCustomConfig } from 'firebaseui-angular';
-
-import { environment } from '../environments/environment';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+// components
 import { AboutComponent } from './about/about.component';
-import { AppRoutingModule } from './app-routing.module';
-import { UserProfileComponent } from './users/user-profile/user-profile.component';
 import { HomeComponent } from './home/home.component';
-import { UserPresenceComponent } from './users/user-presence/user-presence.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
 
+// environments
+import { environment } from '../environments/environment';
 
+// modules
+import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth';
 import { PlayersModule } from './players';
 import { FirebaseModule } from './firebase';
 import { MaterialModule } from './material';
-
-import { UserService } from './users/shared/user.service';
-import { PresenceService } from './users/shared/presence.service';
-
 
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
   provider: AuthProvider.Facebook,
@@ -61,8 +56,7 @@ export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
     AppComponent,
     AboutComponent,
     UserProfileComponent,
-    HomeComponent,
-    UserPresenceComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -79,8 +73,6 @@ export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
     FlexLayoutModule.forRoot(),
   ],
   providers: [
-    UserService,
-    PresenceService
   ],
   bootstrap: [AppComponent]
 })

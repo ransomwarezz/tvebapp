@@ -12,13 +12,15 @@ import { PlayersRoutesModule } from './players.routes';
 // services
 import { PlayersService } from './players.service';
 import { PlayerListComponent } from './components/player-list/player-list.component';
-import { PlayerItemComponent } from './components/player-item/player-item.component'
+import { PlayerItemComponent } from './components/player-item/player-item.component';
+import { PlayerProfileComponent } from './components/player-profile/player-profile.component'
 
 @NgModule({
   declarations: [
     PlayersComponent,
     PlayerListComponent,
-    PlayerItemComponent
+    PlayerItemComponent,
+    PlayerProfileComponent
   ],
   imports: [
     CommonModule,
