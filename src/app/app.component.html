@@ -25,10 +25,10 @@
 
     <!-- user avatar with menu if user is authenticated  -->
     <div *ngIf="authenticated$ | async">
-      <button md-icon-button [mdMenuTriggerFor]="menu">
+      <button md-icon-button [mdMenuTriggerFor]="playermenu">
           <img class="user-icon" src="{{ ( user$ | async )?.photoURL }}">
       </button>
-      <md-menu #menu="mdMenu">
+      <md-menu #playermenu="mdMenu">
         <button md-menu-item [routerLink]="['profile']">
             <md-icon>perm_identity</md-icon>
             <span>Profil</span>

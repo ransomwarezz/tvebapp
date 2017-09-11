@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { IPlayer } from '../../models'
 
 @Component({
@@ -8,11 +8,18 @@ import { IPlayer } from '../../models'
 })
 export class PlayerItemComponent implements OnInit {
 
-  @Input() player: IPlayer;
+  @Input() player: IPlayer; // player to show
+  @Output() invite: EventEmitter<IPlayer> = new EventEmitter(false);
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  invitePlayer(player: IPlayer) {
+    console.log("invite player (1)");
+    console.log(player);
+    this.invite.emit(player);
   }
 
 }

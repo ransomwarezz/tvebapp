@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { firebase } from '../firebase';
+import { FirebaseListObservable } from 'angularfire2/database';
+
 import { AuthService } from "../auth";
+import { PlayersService } from "../players";
 
 import {
   trigger,
@@ -50,7 +53,7 @@ export class HomeComponent implements OnInit {
   authenticated$: Observable<boolean>;
   user$: Observable<firebase.User>;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private playersService: PlayersService) { }
 
   ngOnInit() {
     this.authenticated$ = this.authService.authenticated$;

@@ -1,11 +1,18 @@
 <div *ngIf="authenticated$ | async">
   <div class="flex-home-container">
-    <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/players']">Suche Mitspieler</button>
+    <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/players']">Gegner suchen</button>
+    <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/invites']">Herausforderungen</button>
   </div>
 </div>
+<!-- invites -->
+<!--
+<div *ngFor="let invite of invites$ | async">
+  <i class="material-icons">insert_invitation</i> Herausforderung
+</div>
 <div class="flex-home-container">
-  <button [@flyInOut]="'in'" md-raised-button class="flex-home-button"class="flex-home-button">8 Ball</button>
+  <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" class="flex-home-button">8 Ball</button>
   <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">9 Ball</button>
   <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">10 Ball</button>
   <button [@flyInOut]="'in'" md-raised-button class="flex-home-button">14/1 Endlos</button>
 </div>
+-->

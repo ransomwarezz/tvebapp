@@ -13,24 +13,57 @@ export class AuthService {
   authenticated$: Observable<boolean>;
   user$: Observable<firebase.User>;
   user: firebase.User;
+  uid$: Observable<string>;
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
     this.user$ = afAuth.authState;
     this.authenticated$ = afAuth.authState.map(user => !!user);
+    this.uid$ = afAuth.authState.map(user => {if (user) return user.uid});
     this.user$
       .do(user => {
         if (user) {
           this.user = user;
+          this.updatePlayer();
+          this.updateUser();
           this.updateOnConnect();
-          this.updateOnDisconnect();
         }
       })
       .subscribe();
   }
 
+  private updatePlayer() {
+    let player = this.db.object('players/' + this.user.uid, { preserveSnapshot: true });
+    player.subscribe(snapshot => {
+      if (snapshot.$exists) {
+        //object exists 
+        console.log("player already exists");
+      } else {
+        //object doesnt exist 
+        console.log("player does not exist");
+        this.db.object('players/' + this.user.uid).update(
+          {
+            uid: this.user.uid,
+            name: this.user.displayName,
+            photoURL: this.user.photoURL,
+            league: 'Amateur'
+          }
+        )
+      }
+    });
+
+  }
+
+
   logout(): void {
     this.updateStatus('offline');
     this.afAuth.auth.signOut();
+  }
+
+  private updateUser() {
+    return this.db.object('users/' + this.user.uid).update({
+      name: this.user.displayName,
+      photoURL: this.user.photoURL
+    })
   }
 
   private updateStatus(status: string) {
@@ -46,12 +79,6 @@ export class AuthService {
         this.updateStatus(status);
       })
       .subscribe();
-  }
-
-  private updateOnDisconnect() {
-    firebase.database().ref().child(`users/${this.user.uid}`)
-      .onDisconnect()
-      .update({ status: 'offline' })
   }
 
 }

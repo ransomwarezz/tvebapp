@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
 
@@ -9,12 +9,14 @@ import { environment } from '../environments/environment';
 import { AuthService } from "./auth";
 import { firebase } from "./firebase";
 
+import { MdSnackBar } from './material';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   navItems = [
     { name: 'Home', icon: 'home', route: '' },
@@ -27,7 +29,11 @@ export class AppComponent {
   authenticated$: Observable<boolean>;
   user$: Observable<firebase.User>;
   
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService, 
+    public snackbar: MdSnackBar,
+    private router: Router
+  ) {
     this.authenticated$ = this.authService.authenticated$;
     this.user$ = this.authService.user$;
   }
@@ -35,4 +41,8 @@ export class AppComponent {
   logout() {
     this.authService.logout();
   }
+
+  ngOnInit() {
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { firebase } from '../../../firebase';
 import { IPlayer } from '../../models';
@@ -23,8 +23,8 @@ import { IPlayer } from '../../models';
     fxLayoutGap.xs="5px">
     <div *ngFor="let player of players$ | async">
       <div *ngIf="player.$key != uid">
-        <app-player-item [player]="player"></app-player-item>
-      </div>
+        <app-player-item (invite)="invite.emit($event)" [player]="player"></app-player-item>
+      </div>  
     </div>
   </div>
 `,
@@ -34,6 +34,7 @@ export class PlayerListComponent implements OnInit {
 
   @Input() uid: string;
   @Input() players$: FirebaseListObservable<IPlayer[]>;
+  @Output() invite: EventEmitter<IPlayer> = new EventEmitter(false);
   
   constructor() { }
 

@@ -10,7 +10,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // components
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { UserProfileComponent } from './users/user-profile/user-profile.component';
 
 // environments
 import { environment } from '../environments/environment';
@@ -18,6 +17,7 @@ import { environment } from '../environments/environment';
 // modules
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth';
+import { InvitesModule } from './invites';
 import { PlayersModule } from './players';
 import { FirebaseModule } from './firebase';
 import { MaterialModule } from './material';
@@ -55,7 +55,6 @@ export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
   declarations: [
     AppComponent,
     AboutComponent,
-    UserProfileComponent,
     HomeComponent
   ],
   imports: [
@@ -64,13 +63,14 @@ export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
 
     AuthModule,
     FirebaseModule,
+    InvitesModule,
     MaterialModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     PlayersModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    FlexLayoutModule.forRoot(),
+    FlexLayoutModule,
   ],
   providers: [
   ],
