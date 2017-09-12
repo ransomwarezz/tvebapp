@@ -7,7 +7,6 @@ import { IPlayer } from "../../models";
 @Component({
   selector: 'app-players',
   template: `
-    <!-- <app-player-list [uid]="(playersService.currentPlayer$ | async)?.uid" [players$]="playersService.players$" (invite)="invitePlayer($event)"></app-player-list> -->
     <app-player-list 
       [uid]="(playersService.currentPlayer$ | async)?.uid" 
       [players$]="playersService.players$" 

@@ -25,15 +25,8 @@ export class PlayersService {
     }
   }
 
-  public invitePlayer(uid: string, uidToInvite: string) {
-    console.log("uid         = " + uid);
-    console.log("uidToInvite = " + uidToInvite);
-    this.db.object('invites/' + uidToInvite + '/' + uid).update(
-      {
-        challenger: uid,
-        timestamp: firebase.database.ServerValue.TIMESTAMP
-      }
-    );
+  getPlayer(uid: string): FirebaseObjectObservable<IPlayer> {
+    return this.db.object('players/' + uid);
   }
 
 }

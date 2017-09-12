@@ -12,11 +12,13 @@
 }
 
 .flex-home-button {
-    margin-top: 20px;
+    margin-top: 25px;
     width: 200px;
     height: 50px;
     /* margin: auto;  */
-    background-color: #a5d6a7;
+    /* background-color: #a5d6a7; */
+    background-color: #4caf50;
+    opacity: 0;
 }
 
 .flex-home-login-button {
@@ -26,11 +28,3 @@
     /* margin: auto;  */
     background-color: #a5d6a7;
 }
-
-.container {
-    background-color: green;
-}
-
-/* .item {
-    background-color: lightgray;
-} */

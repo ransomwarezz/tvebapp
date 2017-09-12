@@ -3,32 +3,34 @@ import { DatePipe } from '@angular/common';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
+import { PlayersService } from '../../../players/players.service';
 import { InvitesService } from '../../invites.service';
 import { IInvite } from '../../models/invite';
 
 @Component({
   selector: 'app-invites',
   template: `
-    List of invites:
-    <div *ngFor="let invite of invitesService.invites$ | async">
+    <!-- <div *ngFor="let invite of invitesService.invites$ | async">
       <p>
-        Invited by {{invite.challenger}} at {{ invite.timestamp | date:'medium' }}
+        Invited by {{invite.invitedBy}} at {{ invite.timestamp | date:'medium' }}
       </p>
-    </div>
+    </div> -->
+    <app-invite-list
+      [invites$]="invitesService.invites$">
+    </app-invite-list>
   `
 })
 export class InvitesComponent implements OnInit {
 
-  constructor(public invitesService: InvitesService) { 
-  }
+  constructor(public playersService: PlayersService, public invitesService: InvitesService) { }
   
   ngOnInit() {
-    // this.invitesService.invites$.subscribe(invites => {
-    //   console.log("invites$.subscribe");
-    //   invites.forEach(invite => {
-    //     console.log(invite);
-    //   });
-    // })
+    this.invitesService.invites$.subscribe(invites => {
+      console.log("InvitesComponent.invites$.subscribe");
+      invites.forEach(invite => {
+        console.log(invite);
+      });
+    })
   }
 
 }

@@ -7,6 +7,7 @@ import { InvitesComponent } from './components/invites/invites.component';
 import { InviteItemComponent } from './components/invite-item/invite-item.component';
 
 // modules 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material';
 import { InvitesRoutesModule } from './invites.routes';
 
@@ -16,6 +17,7 @@ import { InvitesService } from './invites.service';
 @NgModule({
   imports: [
     CommonModule,
+    FlexLayoutModule,
     MaterialModule,
     InvitesRoutesModule
   ],

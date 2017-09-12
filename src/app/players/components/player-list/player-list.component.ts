@@ -13,8 +13,6 @@ import { IPlayer } from '../../models';
     <li><a [class.active]="filter === 'true'" [routerLink]="['/tasks', {completed: true}]">Completed</a></li>
   </ul>
   -->
-  <!-- <div class="player-list"> -->
-  <!-- <div fxLayout="row wrap" fxLayoutAlign="space-around"> -->
   <div class="container"
     fxLayout
     fxLayout.xs="column"

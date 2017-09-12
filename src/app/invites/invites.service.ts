@@ -23,7 +23,7 @@ export class InvitesService {
     console.log("createInvite for" + uidToInvite);
     this.db.object('invites/' + uidToInvite + '/' + this.uid).update(
       {
-        challenger: this.uid,
+        invitedBy: this.uid,
         timestamp: firebase.database.ServerValue.TIMESTAMP
       }
     );
