@@ -26,8 +26,9 @@ export class PlayersService {
   }
 
   public invitePlayer(uid: string, uidToInvite: string) {
-    console.log("push invites/" + uidToInvite);
-    this.db.object('invites/' + uidToInvite).update(
+    console.log("uid         = " + uid);
+    console.log("uidToInvite = " + uidToInvite);
+    this.db.object('invites/' + uidToInvite + '/' + uid).update(
       {
         challenger: uid,
         timestamp: firebase.database.ServerValue.TIMESTAMP

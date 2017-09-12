@@ -16,10 +16,4 @@ export class PlayerItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  invitePlayer(player: IPlayer) {
-    console.log("invite player (1)");
-    console.log(player);
-    this.invite.emit(player);
-  }
-
 }

@@ -3,31 +3,38 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { AuthService } from '../auth';
 import { firebase } from '../firebase';
 
-import { IInvite } from './models';
+import { Invite, IInvite } from './models';
 
 @Injectable()
 export class InvitesService {
 
   invites$: FirebaseListObservable<IInvite[]>;
 
+  private uid: string;
+
   constructor(private db: AngularFireDatabase, private auth: AuthService) { 
     this.auth.uid$.subscribe(uid => {
-      this.invites$ = this.db.list('invites/' + uid, { preserveSnapshot: true });
+      this.uid = uid;
+      this.invites$ = this.db.list('invites/' + this.uid);
     });
   }
 
-  createInvite(uidToInvite: string, invitedByUid: string) {
-    console.log("push invites/" + uidToInvite);
-    this.db.object('invites/' + uidToInvite).update(
+  createInvite(uidToInvite: string) {
+    console.log("createInvite for" + uidToInvite);
+    this.db.object('invites/' + uidToInvite + '/' + this.uid).update(
       {
-        challenger: invitedByUid,
+        challenger: this.uid,
         timestamp: firebase.database.ServerValue.TIMESTAMP
       }
     );
   }
 
-  getInvites(uid: string): FirebaseListObservable<IInvite[]> {
-    return this.db.list('invites/' + uid);
+  deleteInvite(uidToRemoveFrom: string) {
+    return this.db.object('invites/' + uidToRemoveFrom + '/' + this.uid).remove();
+  }
+
+  getInvites(): FirebaseListObservable<IInvite[]> {
+    return this.db.list('invites/' + this.uid);
   }
 
 }

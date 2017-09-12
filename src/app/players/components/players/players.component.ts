@@ -7,7 +7,12 @@ import { IPlayer } from "../../models";
 @Component({
   selector: 'app-players',
   template: `
-    <app-player-list [uid]="(playersService.currentPlayer$ | async)?.uid" [players$]="playersService.players$" (invite)="invitePlayer($event)"></app-player-list>
+    <!-- <app-player-list [uid]="(playersService.currentPlayer$ | async)?.uid" [players$]="playersService.players$" (invite)="invitePlayer($event)"></app-player-list> -->
+    <app-player-list 
+      [uid]="(playersService.currentPlayer$ | async)?.uid" 
+      [players$]="playersService.players$" 
+      (invite)="invitesService.createInvite($event.$key)">
+    </app-player-list>
   `
 })
 export class PlayersComponent implements OnInit {
@@ -17,10 +22,4 @@ export class PlayersComponent implements OnInit {
   ngOnInit() {
   }
   
-  invitePlayer(player: IPlayer) {
-    console.log("invite player (3)");
-    console.log(player);
-    console.log("this.auth.user.uid = " + this.auth.user.uid);
-    this.playersService.invitePlayer(this.auth.user.uid, player.uid);
-  }
 }
