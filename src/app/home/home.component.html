@@ -5,25 +5,22 @@
       'width' : '100%',
       'opacity' : '0.6'
     }" fxLayout fxLayoutAlign="center" fxFlexFill> -->
-    <div [ngStyle]="
+<div [ngStyle]="
     {
       'background': 'linear-gradient(0deg, rgba(255, 255, 255, 0.5), 
       rgba(255, 255, 255, 0.5)), 
-      url(/assets/images/HeinerOpen.jpg) top center / cover no-repeat'
+      url(/assets/images/home_1.jpg) bottom center / cover no-repeat'
     }" fxFlexFill>
-  <div class="subcontainer" [ngStyle]="
-        {
-          'opacity' : '1'
-        }">
-    <div *ngIf="authenticated$ | async">
-      <div class="flex-home-container">
-        <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/players']">Gegner suchen</button>
-        <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/invites']">Herausforderungen</button>
-      </div>
+  <div *ngIf="authenticated$ | async">
+    <div class="flex-home-container">
+      <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/game-selection']">Spielen</button>
+      <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/players']">Gegner suchen</button>
+      <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/invites']">Herausforderungen</button>
     </div>
   </div>
-  <!-- invites -->
-  <!--
+</div>
+<!-- invites -->
+<!--
 <div *ngFor="let invite of invites$ | async">
   <i class="material-icons">insert_invitation</i> Herausforderung
 </div>

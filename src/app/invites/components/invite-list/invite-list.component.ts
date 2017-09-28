@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { IInvite } from '../../models';
+import {Subscription}  from "rxjs/Rx";
 
 @Component({
   selector: 'app-invite-list',
@@ -22,15 +23,21 @@ export class InviteListComponent implements OnInit {
 
   @Input() invites$: FirebaseListObservable<IInvite[]>;
   
+  inviteSubscription: Subscription;
+
   constructor() { }
 
   ngOnInit() {
-    this.invites$.subscribe(invites => {
-      console.log("InviteListComponent.invites$.subscribe");
-      invites.forEach(invite => {
-        console.log(invite);
-      });
-    })
+    // this.inviteSubscription = this.invites$.subscribe(invites => {
+    //   console.log("InviteListComponent.invites$.subscribe");
+    //   invites.forEach(invite => {
+    //     console.log(invite);
+    //   });
+    // })
+  }
+
+  ngOnDestroy() {
+    // this.inviteSubscription.unsubscribe();
   }
 
 }

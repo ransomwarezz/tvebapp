@@ -1,0 +1,15 @@
+<div class="game-configuration-container" fxLayout="row" fxLayoutAlign="center">
+  <form>
+    <md-select placeholder="Disziplin" [(ngModel)]="selectedDiscipline" name="discipline">
+      <md-option *ngFor="let discipline of disciplines" [value]="discipline">
+        {{discipline.viewValue}}
+      </md-option>
+    </md-select>
+    <br>
+    <p> Selected discipline: {{selectedDiscipline}} </p>
+    <br>
+    <md-form-field class="example-full-width">
+      <!-- <input mdInput="number" placeholder="Ausspielziel" value="{{ selectedDiscipline.defaultWinningSets }}"> -->
+    </md-form-field>
+  </form>
+</div>

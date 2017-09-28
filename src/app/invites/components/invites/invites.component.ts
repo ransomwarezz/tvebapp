@@ -25,12 +25,12 @@ export class InvitesComponent implements OnInit {
   constructor(public playersService: PlayersService, public invitesService: InvitesService) { }
   
   ngOnInit() {
-    this.invitesService.invites$.subscribe(invites => {
-      console.log("InvitesComponent.invites$.subscribe");
-      invites.forEach(invite => {
-        console.log(invite);
-      });
-    })
+    // this.invitesService.invites$.subscribe(invites => {
+    //   console.log("InvitesComponent.invites$.subscribe");
+    //   invites.forEach(invite => {
+    //     console.log(invite);
+    //   });
+    // })
   }
 
 }

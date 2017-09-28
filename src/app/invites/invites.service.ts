@@ -10,31 +10,28 @@ export class InvitesService {
 
   invites$: FirebaseListObservable<IInvite[]>;
 
-  private uid: string;
-
   constructor(private db: AngularFireDatabase, private auth: AuthService) { 
-    this.auth.uid$.subscribe(uid => {
-      this.uid = uid;
-      this.invites$ = this.db.list('invites/' + this.uid);
-    });
+    this.invites$ = this.db.list('invites/' + this.auth.user.uid);
   }
 
   createInvite(uidToInvite: string) {
-    console.log("createInvite for" + uidToInvite);
-    this.db.object('invites/' + uidToInvite + '/' + this.uid).update(
+    console.log("createInvite for  " + uidToInvite);
+    console.log("createInvite from " + this.auth.user.uid);
+    this.db.object('invites/' + uidToInvite + '/' + this.auth.user.uid).update(
       {
-        invitedBy: this.uid,
+        // invitedBy: this.uid,
+        invitedBy: this.auth.user.uid,
         timestamp: firebase.database.ServerValue.TIMESTAMP
       }
     );
   }
 
   deleteInvite(uidToRemoveFrom: string) {
-    return this.db.object('invites/' + uidToRemoveFrom + '/' + this.uid).remove();
+    return this.db.object('invites/' + uidToRemoveFrom + '/' + this.auth.user.uid).remove();
   }
 
   getInvites(): FirebaseListObservable<IInvite[]> {
-    return this.db.list('invites/' + this.uid);
+    return this.db.list('invites/' + this.auth.user.uid);
   }
 
 }

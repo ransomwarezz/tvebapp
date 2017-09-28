@@ -1,0 +1,44 @@
+<div [ngStyle]="
+{
+  'background': 'linear-gradient(0deg, rgba(255, 255, 255, 0.5), 
+  rgba(255, 255, 255, 0.5)), 
+  url(/assets/images/home_1.jpg) bottom center / cover no-repeat'
+}" fxFlexFill>
+<div id="page-padding">
+  <div class="game-cards-container" fxFlex="1 1 auto" fxLayout="column" fxLayoutAlign="space-around center"
+    fxLayoutGap="10px">
+    <div class="game-cards-container" fxFlex="1 1 auto" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <md-card class="game-card">
+        <img md-card-image src="assets/images/game-card-8-ball.jpg">
+        <md-card-title>8 Ball</md-card-title>
+        <md-card-actions align="end">
+          <button [routerLink]="['/game-setup']" style="background-color: #6ABD91" md-raised-button>Spielen</button>
+        </md-card-actions>
+      </md-card>
+      <md-card class="game-card">
+        <img md-card-image src="assets/images/game-card-8-ball.jpg">
+        <md-card-title>9 Ball</md-card-title>
+        <md-card-actions align="end">
+          <button [routerLink]="['/game-setup']" style="background-color: #6ABD91" md-raised-button>Spielen</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+    <div class="game-cards-container" fxFlex="1 1 auto" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <md-card class="game-card">
+        <img md-card-image src="assets/images/game-card-8-ball.jpg">
+        <md-card-title>10 Ball</md-card-title>
+        <md-card-actions align="end">
+          <button [routerLink]="['/game-setup']" style="background-color: #6ABD91" md-raised-button>Spielen</button>
+        </md-card-actions>
+      </md-card>
+      <md-card class="game-card">
+        <img md-card-image src="assets/images/game-card-8-ball.jpg">
+        <md-card-title>14/1</md-card-title>
+        <md-card-actions align="end">
+          <button [routerLink]="['/game-setup']" style="background-color: #6ABD91" md-raised-button>Spielen</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</div>
+</div>

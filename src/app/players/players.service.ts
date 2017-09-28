@@ -20,7 +20,9 @@ export class PlayersService {
         .take(1)
         .subscribe(uid => {
           this.currentPlayer$ = this.db.object('players/' + uid);
-          this.players$ = this.db.list('players/'); // return only online users
+          // this.players$ = this.db.list('players/'); // return only online users
+          this.players$ = this.db.list('players/', { query: { orderByChild: 'status', equalTo: 'online' } }); // return only online users
+          
         });
     }
   }

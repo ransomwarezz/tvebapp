@@ -34,11 +34,13 @@ export class AppComponent implements OnInit {
     public snackbar: MdSnackBar,
     private router: Router
   ) {
+    console.log("(AppComponent:constructor)");
     this.authenticated$ = this.authService.authenticated$;
     this.user$ = this.authService.user$;
   }
 
   logout() {
+    console.log("(AppComponent:logout)");
     this.router.navigate(['login']);
     this.authService.logout();
   }

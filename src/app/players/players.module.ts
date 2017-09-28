@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // components
-import { PlayersComponent } from './components/players/players.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { PlayerItemComponent } from './components/player-item/player-item.component';
 import { PlayerProfileComponent } from './components/player-profile/player-profile.component'
+
+import { PlayersComponent } from './components/players/players.component';
 
 // modules
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -27,6 +28,8 @@ import { PlayersService } from './players.service';
     PlayerListComponent,
     PlayerItemComponent,
     PlayerProfileComponent,
+  ],
+  exports: [
   ],
   providers: [
     PlayersService

@@ -17,10 +17,13 @@ import { environment } from '../environments/environment';
 // modules
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth';
+import { GamesModule } from './games';
 import { InvitesModule } from './invites';
 import { PlayersModule } from './players';
 import { FirebaseModule } from './firebase';
 import { MaterialModule } from './material';
+
+import 'hammerjs';
 
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
   provider: AuthProvider.Facebook,
@@ -58,19 +61,19 @@ export const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
     HomeComponent
   ],
   imports: [
+    AppRoutingModule,
+    AuthModule,
     BrowserModule,
     BrowserAnimationsModule,
-
-    AuthModule,
     FirebaseModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    FlexLayoutModule,
+    FormsModule,
+    GamesModule,
+    HttpModule,
     InvitesModule,
     MaterialModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     PlayersModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule,
-    FlexLayoutModule,
   ],
   providers: [
   ],
