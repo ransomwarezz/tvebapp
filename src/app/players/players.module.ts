@@ -30,6 +30,7 @@ import { PlayersService } from './players.service';
     PlayerProfileComponent,
   ],
   exports: [
+    PlayersComponent
   ],
   providers: [
     PlayersService

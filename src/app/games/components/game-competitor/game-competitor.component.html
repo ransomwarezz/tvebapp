@@ -1,0 +1,9 @@
+<!-- <div *ngFor="let player of playersService.players$ | async">
+  <div *ngIf="player.$key != (playersService.currentPlayer$ | async)?.uid">
+    <p>{{player.name}}</p>
+  </div>
+</div>
+<div *ngIf="(playersService.players$ | async)?.length <= 1">
+  No players online.
+</div> -->
+<app-players (playerSelected)="playerSelected($event)"></app-players>

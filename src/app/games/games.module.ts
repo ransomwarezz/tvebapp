@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material';
+import { PlayersModule } from "../players";
 
 // components
 import { GameComponent } from './components/game/game.component';
@@ -13,7 +14,7 @@ import { GamesService } from './games.service';
 import { GamesRoutesModule } from './games.routes';
 import { GameConfigurationComponent } from './components/game-configuration/game-configuration.component';
 import { GameSelectionComponent } from './components/game-selection/game-selection.component';
-import { GameSetupComponent } from './components/game-setup/game-setup.component';
+import { GameCompetitorComponent } from './components/game-competitor/game-competitor.component';
 
 @NgModule({
   imports: [
@@ -21,13 +22,14 @@ import { GameSetupComponent } from './components/game-setup/game-setup.component
     FlexLayoutModule,
     FormsModule,
     MaterialModule,
-    GamesRoutesModule
+    GamesRoutesModule,
+    PlayersModule
   ],
   declarations: [
     GameComponent,
     GameConfigurationComponent,
     GameSelectionComponent,
-    GameSetupComponent
+    GameCompetitorComponent
   ],
   providers: [
     GamesService

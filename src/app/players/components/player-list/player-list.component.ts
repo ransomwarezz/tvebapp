@@ -6,13 +6,6 @@ import { IPlayer } from '../../models';
 @Component({
   selector: 'app-player-list',
   template: `
-    <!--
-    <ul class="task-filters">
-      <li><a [class.active]="!filter" [routerLink]="['/tasks']">View All</a></li>
-      <li><a [class.active]="filter === 'false'" [routerLink]="['/tasks', {completed: false}]">Active</a></li>
-      <li><a [class.active]="filter === 'true'" [routerLink]="['/tasks', {completed: true}]">Completed</a></li>
-    </ul>
-    -->
     <div [ngStyle]="
     {
       'background': 'linear-gradient(0deg, rgba(255, 255, 255, 0.2), 
@@ -31,7 +24,6 @@ import { IPlayer } from '../../models';
           <app-player-item (invite)="invite.emit($event)" [player]="player"></app-player-item>
         </div>  
       </div>
-      <!-- <div *ngIf="numberOfPlayers == 0"> -->
       <div *ngIf="(players$ | async)?.length <= 1">
         <!-- No players available. -->
         <md-progress-bar mode="indeterminate"></md-progress-bar>

@@ -13,7 +13,7 @@
     }" fxFlexFill>
   <div *ngIf="authenticated$ | async">
     <div class="flex-home-container">
-      <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/game-selection']">Spielen</button>
+      <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/game']">Spielen</button>
       <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/players']">Gegner suchen</button>
       <button [@flyInOut]="'in'" md-raised-button class="flex-home-button" [routerLink]="['/invites']">Herausforderungen</button>
     </div>

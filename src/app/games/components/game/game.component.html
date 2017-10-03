@@ -1,3 +1,3 @@
-<p>
-  game component works
-</p>
+<div *ngIf="this.game.state == gameState.GAME_STATE_NONE">
+  <app-game-selection (gameType)="setType($event)"></app-game-selection>
+</div>
